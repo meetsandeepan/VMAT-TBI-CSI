@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3FBF7B5-9E18-43BA-B40F-144682A3956E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VMATTBICSIAutoPlanningHelpers</RootNamespace>
+    <AssemblyName>VMATTBICSIAutoPlanningHelpers</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\VMAT-TBI-CSI\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\..\bin\VMAT-TBI-CSI\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EvilDICOM, Version=2.0.6.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EvilDICOM.2.0.6.5\lib\net472\EvilDICOM.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.2\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.2\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.2\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SimpleProgressWindow, Version=1.2.8594.18064, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\SimpleProgressWindow.1.2.8594.18064\lib\net472\SimpleProgressWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.2\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VMS.TPS.Common.Model.API">
+      <HintPath>..\..\..\VMS_TPS_resources\16.1\VMS.TPS.Common.Model.API.dll</HintPath>
+    </Reference>
+    <Reference Include="VMS.TPS.Common.Model.Types">
+      <HintPath>..\..\..\VMS_TPS_resources\16.1\VMS.TPS.Common.Model.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\GenerateTSbase.cs" />
+    <Compile Include="BaseClasses\OptimizationLoopBase.cs" />
+    <Compile Include="BaseClasses\PlaceBeamsBase.cs" />
+    <Compile Include="BaseClasses\PlanPrepBase.cs" />
+    <Compile Include="BaseClasses\AutoPlanTemplateBase.cs" />
+    <Compile Include="DataContainers\PlanEvaluationDataContainer.cs" />
+    <Compile Include="Delegates\AllDelegates.cs" />
+    <Compile Include="Enums\AllEnums.cs" />
+    <Compile Include="EnumTypeHelpers\DVHMetricTypeHelper.cs" />
+    <Compile Include="EnumTypeHelpers\InequalityOperatorHelper.cs" />
+    <Compile Include="EnumTypeHelpers\UnitsTypeHelper.cs" />
+    <Compile Include="Helpers\AppClosingHelper.cs" />
+    <Compile Include="Helpers\CalculationHelper.cs" />
+    <Compile Include="EnumTypeHelpers\ExportFormatTypeHelper.cs" />
+    <Compile Include="EnumTypeHelpers\FlashTypeHelper.cs" />
+    <Compile Include="Helpers\PlanObjectiveHelper.cs" />
+    <Compile Include="Helpers\PlanPrepHelper.cs" />
+    <Compile Include="Interfaces\IPlanConstraint.cs" />
+    <Compile Include="DataContainers\OptDataContainer.cs" />
+    <Compile Include="Interfaces\IPlanQualityEvaluation.cs" />
+    <Compile Include="Models\DaemonModel.cs" />
+    <Compile Include="Models\FieldJunctionModel.cs" />
+    <Compile Include="Models\IsocenterModel.cs" />
+    <Compile Include="Models\OptimizationConstraintModel.cs" />
+    <Compile Include="Models\OptTSCreationCriteriaModel.cs" />
+    <Compile Include="Models\PlanFieldJunctionModel.cs" />
+    <Compile Include="Models\PlanIsocenterModel.cs" />
+    <Compile Include="Models\PlanObjectiveModel.cs" />
+    <Compile Include="Models\PlanObjectivesDeviationModel.cs" />
+    <Compile Include="Models\PlanOptConstraintsDeviationModel.cs" />
+    <Compile Include="Models\PlanOptimizationSetupModel.cs" />
+    <Compile Include="Models\PlanTargetsModel.cs" />
+    <Compile Include="Models\PrescriptionModel.cs" />
+    <Compile Include="Models\RequestedOptimizationTSStructureModel.cs" />
+    <Compile Include="Models\RequestedPlanMetricModel.cs" />
+    <Compile Include="Models\RequestedTSStructureModel.cs" />
+    <Compile Include="Models\RequestedTSManipulationModel.cs" />
+    <Compile Include="Models\TargetModel.cs" />
+    <Compile Include="Models\TSCoolerStructureModel.cs" />
+    <Compile Include="Models\TSHeaterStructureModel.cs" />
+    <Compile Include="Models\TSRingStructureModel.cs" />
+    <Compile Include="Helpers\RingHelper.cs" />
+    <Compile Include="Models\TSTargetCropOverlapModel.cs" />
+    <Compile Include="Models\UnionStructureModel.cs" />
+    <Compile Include="PlanTemplateClasses\TBIAutoPlanTemplate.cs" />
+    <Compile Include="Models\ImportExportDataModel.cs" />
+    <Compile Include="UIHelpers\ConfigurationUIHelper.cs" />
+    <Compile Include="Helpers\ContourHelper.cs" />
+    <Compile Include="Helpers\OptimizationLoopHelper.cs" />
+    <Compile Include="EnumTypeHelpers\OptimizationTypeHelper.cs" />
+    <Compile Include="Helpers\PlanEvaluationHelper.cs" />
+    <Compile Include="Helpers\TSHeaterCoolerHelper.cs" />
+    <Compile Include="EnumTypeHelpers\TSManipulationTypeHelper.cs" />
+    <Compile Include="Helpers\WinUtilitiesModified.cs" />
+    <Compile Include="Logging\LogHelper.cs" />
+    <Compile Include="Prompts\SelectItemPrompt.xaml.cs">
+      <DependentUpon>SelectItemPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompts\SaveChangesPrompt.xaml.cs">
+      <DependentUpon>SaveChangesPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompts\EnterMissingInfoPrompt.xaml.cs">
+      <DependentUpon>EnterMissingInfoPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Prompts\ConfirmPrompt.xaml.cs">
+      <DependentUpon>ConfirmPrompt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\OptimizationSetupHelper.cs" />
+    <Compile Include="Helpers\StructureTuningHelper.cs" />
+    <Compile Include="Helpers\TargetsHelper.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="UIHelpers\BeamPlacementUIHelper.cs" />
+    <Compile Include="Helpers\ConfigurationHelper.cs" />
+    <Compile Include="UIHelpers\CropOverlapOARUIHelper.cs" />
+    <Compile Include="UIHelpers\ExportCTUIHelper.cs" />
+    <Compile Include="UIHelpers\GeneralUIHelper.cs" />
+    <Compile Include="Helpers\IsoNameHelper.cs" />
+    <Compile Include="UIHelpers\ImportSSUIHelper.cs" />
+    <Compile Include="UIHelpers\OptimizationLoopUIHelper.cs" />
+    <Compile Include="UIHelpers\OptimizationSetupUIHelper.cs" />
+    <Compile Include="UIHelpers\PlanPrepUIHelper.cs" />
+    <Compile Include="UIHelpers\RingUIHelper.cs" />
+    <Compile Include="UIHelpers\StructureTuningUIHelper.cs" />
+    <Compile Include="UIHelpers\TargetsUIHelper.cs" />
+    <Compile Include="Helpers\TemplateBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PlanTemplateClasses\CSIAutoPlanTemplate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UIHelpers\PlanObjectiveSetupUIHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OptimizationProgressWindow\OptimizationProgressWindow.csproj">
+      <Project>{66caaa05-0903-43da-879a-9ef766f1b742}</Project>
+      <Name>OptimizationProgressWindow</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Prompts\SelectItemPrompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Prompts\SaveChangesPrompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Prompts\EnterMissingInfoPrompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Prompts\ConfirmPrompt.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>if NOT EXIST "$(ProjectDir)$(OutDir)\configuration\" (
+mkdir "$(ProjectDir)$(OutDir)\configuration\"
+)
+if NOT EXIST "$(ProjectDir)$(OutDir)\logs\" (
+mkdir "$(ProjectDir)$(OutDir)\logs\"
+)
+if NOT EXIST "$(ProjectDir)$(OutDir)\documentation\" (
+mkdir "$(ProjectDir)$(OutDir)\documentation\"
+)</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)_configuration\*" "$(ProjectDir)$(OutDir)\configuration"
+copy "$(SolutionDir)_documentation\*" "$(ProjectDir)$(OutDir)\documentation"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

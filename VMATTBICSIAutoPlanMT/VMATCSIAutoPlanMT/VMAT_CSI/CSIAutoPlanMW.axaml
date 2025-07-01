@@ -1,0 +1,110 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" 
+        x:Class="VMATCSIAutoPlanMT.VMAT_CSI.CSIAutoPlanMW"
+        Title="VMAT CSI Autoplanning" 
+        Width="800" Height="600"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock Text="VMAT CSI Auto Planning" 
+                       FontSize="24" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,0,0,20"/>
+            
+            <TextBlock Text="Patient MRN:" Margin="0,0,0,5"/>
+            <TextBox x:Name="patientMRNTextBox" 
+                     Text="Test Patient" 
+                     Margin="0,0,0,10"/>
+            
+            <TextBlock Text="Structure Set ID:" Margin="0,0,0,5"/>
+            <ComboBox x:Name="structureSetComboBox" 
+                      Margin="0,0,0,10">
+                <ComboBoxItem Content="Structure Set 1"/>
+                <ComboBoxItem Content="Structure Set 2"/>
+            </ComboBox>
+            
+            <Button Content="Help" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,0,10"
+                    Click="HelpButton_Click"/>
+            
+            <Button Content="Quick Start" 
+                    HorizontalAlignment="Left" 
+                    Margin="0,0,0,10"
+                    Click="QuickStart_Click"/>
+            
+            <TextBlock Text="Plan Templates:" Margin="0,10,0,5"/>
+            <ListBox x:Name="templateListBox" 
+                     Height="100" 
+                     Margin="0,0,0,10">
+                <ListBoxItem Content="Template 1"/>
+                <ListBoxItem Content="Template 2"/>
+                <ListBoxItem Content="Template 3"/>
+            </ListBox>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <TextBlock Text="Base Plan Rx" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBlock Text="Dose per fraction (cGy/fx):" Margin="0,0,0,5"/>
+                    <TextBox x:Name="baseDosePerFxTextBox" Text="180" Margin="0,0,0,5"/>
+                    <TextBlock Text="Number of fractions:" Margin="0,0,0,5"/>
+                    <TextBox x:Name="baseNumFxTextBox" Text="25" Margin="0,0,0,5"/>
+                    <TextBlock Text="Rx dose (cGy):" Margin="0,0,0,5"/>
+                    <TextBox x:Name="baseRxTextBox" Text="4500" IsReadOnly="True"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="Boost Plan Rx" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBlock Text="Dose per fraction (cGy/fx):" Margin="0,0,0,5"/>
+                    <TextBox x:Name="boostDosePerFxTextBox" Text="200" Margin="0,0,0,5"/>
+                    <TextBlock Text="Number of fractions:" Margin="0,0,0,5"/>
+                    <TextBox x:Name="boostNumFxTextBox" Text="5" Margin="0,0,0,5"/>
+                    <TextBlock Text="Rx dose (cGy):" Margin="0,0,0,5"/>
+                    <TextBox x:Name="boostRxTextBox" Text="1000" IsReadOnly="True"/>
+                </StackPanel>
+            </Grid>
+            
+            <TabControl Margin="0,20,0,0">
+                <TabItem Header="Export/Import">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Export/Import functionality will be implemented here" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Specify Targets">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Target specification will be implemented here" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Structure Tuning">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Structure tuning will be implemented here" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Beam Placement">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Beam placement will be implemented here" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Optimization">
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Optimization will be implemented here" 
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Grid>
+</Window> 
