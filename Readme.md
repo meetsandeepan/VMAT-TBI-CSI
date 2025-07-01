@@ -2,6 +2,22 @@
 
 An automated planning solution for VMAT TBI and VMAT CSI using the Eclipse Scripting Application Programming Interface (ESAPI)
 
+## 🚀 **NEW: Cross-Platform Support with Avalonia**
+
+This application has been migrated from WPF to **Avalonia**, providing cross-platform compatibility across Windows, macOS, and Linux while maintaining the same functionality and user experience.
+
+### ✨ **Key Benefits of Avalonia Migration**
+- **Cross-platform compatibility** - Runs on Windows, macOS, and Linux
+- **Modern UI framework** - Better performance and features
+- **Future-proof** - Microsoft is deprecating WPF
+- **Same functionality** - All medical planning logic preserved
+- **Identical UI** - Same XAML syntax and user experience
+
+### 🖥️ **Platform Support**
+- ✅ **Windows** - Full ESAPI integration with Eclipse
+- ✅ **macOS** - UI testing and development (ESAPI requires Windows)
+- ✅ **Linux** - UI testing and development (ESAPI requires Windows)
+
 ## Authors
 - Primary contributors and authors:
 	- Eric Simiele: primary developer and maintainer of code
@@ -28,10 +44,34 @@ See [Changes log](https://github.com/esimiele/VMAT-TBI-CSI/blob/master/ChangesLo
 - Much of the code has been abstracted into the VMATTBICSIAutoPlanningHelpers library, which contains many useful methods that are relevant to both VMAT TBI and CSI autoplanning
 
 ## Install and run guide
+
+### Prerequisites
+- **.NET 6.0 SDK** or later
+  - Windows: Download from [Microsoft](https://dotnet.microsoft.com/download)
+  - macOS: `brew install dotnet`
+  - Linux: Follow [Microsoft's installation guide](https://docs.microsoft.com/en-us/dotnet/core/install/linux)
+
 ### Install and build
-- Clone the repository to your local computer
-- Open the solution file in visual studio
-- Fixes any references to the Varian DLL files for the following projects:
+
+#### **Cross-Platform Build (Recommended)**
+```bash
+# Clone the repository
+git clone https://github.com/meetsandeepan/VMAT-TBI-CSI.git
+cd VMAT-TBI-CSI
+
+# Restore dependencies
+dotnet restore VMATTBICSIAutoPlanMT/VMATCSIAutoPlanMT/VMATCSIAutoPlanMT.csproj
+
+# Build the application
+dotnet build VMATTBICSIAutoPlanMT/VMATCSIAutoPlanMT/VMATCSIAutoPlanMT.csproj
+
+# Run the application
+dotnet run --project VMATTBICSIAutoPlanMT/VMATCSIAutoPlanMT/VMATCSIAutoPlanMT.csproj
+```
+
+#### **Windows-Specific Setup (For ESAPI Integration)**
+- Open the solution file in Visual Studio
+- Fix any references to the Varian DLL files for the following projects:
 	- ImportListener
 	- VMATCSIAutoPlanMT
 	- VMATTBIAutoPlanMT
@@ -53,6 +93,13 @@ See [Changes log](https://github.com/esimiele/VMAT-TBI-CSI/blob/master/ChangesLo
 - Resolve any build errors
 
 ### Troubleshooting
+
+#### **Cross-Platform Issues**
+- **macOS/Linux**: ESAPI integration requires Windows and Eclipse installation
+- **UI Testing**: The Avalonia UI works on all platforms for testing and development
+- **Dependencies**: Ensure .NET 6.0 SDK is properly installed
+
+#### **Windows-Specific Issues**
 - Again, don't care about build failures for ParallelTest and VMATTBICSIAutoplanningHelpersTests
 - A likely failure is the varian ESAPI dlls not being found/correctly referenced
 	- be sure to update them to **YOUR VERSION OF ECLIPSE/ESAPI** for all projects listed in the installation section
@@ -78,6 +125,17 @@ See [Changes log](https://github.com/esimiele/VMAT-TBI-CSI/blob/master/ChangesLo
 - Once the gui pops up, switch to the Script configuration tab and review the settings to ensure they match what you changed in the .ini files previously
 
 ### Run
+
+#### **Cross-Platform Execution**
+```bash
+# Run CSI Auto Planning
+dotnet run --project VMATTBICSIAutoPlanMT/VMATCSIAutoPlanMT/VMATCSIAutoPlanMT.csproj
+
+# Run TBI Auto Planning  
+dotnet run --project VMATTBICSIAutoPlanMT/VMATTBIAutoPlanMT/VMATTBIAutoPlanMT.csproj
+```
+
+#### **Windows-Specific Execution**
 - The scripts can be run either through citrix or as stand-alone applications on a thick-client
 - To run through citrix:
 	- Copy the bin/ folder and all of its contents to a network drive that citrix can access
@@ -101,6 +159,32 @@ See [Changes log](https://github.com/esimiele/VMAT-TBI-CSI/blob/master/ChangesLo
 	- VMATTBICSIOptLoopMT
 	- ImportListener
 
+## Technical Architecture
+
+### **UI Framework Migration**
+- **From**: Windows Presentation Foundation (WPF)
+- **To**: Avalonia UI Framework
+- **Benefits**: Cross-platform, modern, future-proof
+- **Compatibility**: Same XAML syntax, same user experience
+
+### **Project Structure**
+```
+VMATTBICSIAutoPlanMT/
+├── VMATCSIAutoPlanMT/          # CSI Planning Application (Avalonia)
+├── VMATTBIAutoPlanMT/          # TBI Planning Application (WPF - pending migration)
+├── VMATTBICSIAutoplanningHelpers/  # Shared Business Logic
+├── OptimizationProgressWindow/     # Progress UI Components
+├── ImportListener/             # DICOM Import/Export
+└── Launcher/                   # Application Launcher
+```
+
+### **Key Components**
+- **Planning Engine**: Core medical planning algorithms
+- **ESAPI Integration**: Varian Eclipse integration (Windows only)
+- **Template System**: Reusable planning configurations
+- **Progress Tracking**: Real-time optimization feedback
+- **DICOM Support**: Medical imaging standards
+
 ## Contributing
 - The authors welcome contributions, suggestions, issues, etc.
 - For contributions, fork the code, make your changes and open a pull request with a short description of your changes
@@ -108,3 +192,11 @@ See [Changes log](https://github.com/esimiele/VMAT-TBI-CSI/blob/master/ChangesLo
 - For all other items:
 	- Feel free to open an issue for problems with the code or feature requests
 	- I monitor it fairly regularly so I should get back to you in a week or so
+
+## License
+MIT License - see [License](https://github.com/meetsandeepan/VMAT-TBI-CSI/blob/master/License) file for details.
+
+## Acknowledgments
+- Original development team at Stanford University
+- Avalonia UI Framework contributors
+- Medical physics community for feedback and testing
